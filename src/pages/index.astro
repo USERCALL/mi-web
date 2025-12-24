@@ -1,0 +1,559 @@
+---
+const title = "Backend Java Developer - CV";
+const name = "Professional Backend Developer";
+const role = "Senior Java Backend Developer";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Professional curriculum vitae of a Backend Java Developer" />
+    <title>{title}</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --accent-color: #3b82f6;
+        --text-dark: #1f2937;
+        --text-light: #6b7280;
+        --bg-light: #f9fafb;
+        --bg-white: #ffffff;
+        --border-color: #e5e7eb;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 2rem 1rem;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--bg-white);
+        border-radius: 16px;
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+      }
+
+      .header {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        color: white;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .header .role {
+        font-size: 1.25rem;
+        opacity: 0.9;
+        font-weight: 300;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .content {
+        padding: 2rem;
+      }
+
+      .section {
+        margin-bottom: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--accent-color);
+        font-weight: 600;
+      }
+
+      .summary {
+        color: var(--text-light);
+        font-size: 1.05rem;
+        line-height: 1.8;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .skill-category {
+        background: var(--bg-light);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--accent-color);
+      }
+
+      .skill-category h3 {
+        color: var(--text-dark);
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .skill-category ul {
+        list-style: none;
+      }
+
+      .skill-category li {
+        padding: 0.4rem 0;
+        color: var(--text-light);
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .skill-category li:before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        font-weight: bold;
+      }
+
+      .experience-item, .education-item {
+        margin-bottom: 2rem;
+        padding-left: 1.5rem;
+        border-left: 3px solid var(--border-color);
+        position: relative;
+      }
+
+      .experience-item:before, .education-item:before {
+        content: "";
+        position: absolute;
+        left: -7px;
+        top: 0;
+        width: 12px;
+        height: 12px;
+        background: var(--accent-color);
+        border-radius: 50%;
+      }
+
+      .experience-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .experience-company {
+        color: var(--primary-color);
+        font-weight: 500;
+        margin-top: 0.25rem;
+      }
+
+      .experience-date {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        margin-top: 0.25rem;
+      }
+
+      .experience-description {
+        margin-top: 0.75rem;
+        color: var(--text-light);
+      }
+
+      .experience-description ul {
+        margin-top: 0.5rem;
+        margin-left: 1rem;
+      }
+
+      .experience-description li {
+        margin-top: 0.5rem;
+      }
+
+      .projects-grid {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .project-card {
+        background: var(--bg-light);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--accent-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow);
+      }
+
+      .project-title {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .project-description {
+        color: var(--text-light);
+        margin-bottom: 0.75rem;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+      }
+
+      .tech-tag {
+        background: white;
+        color: var(--primary-color);
+        padding: 0.25rem 0.75rem;
+        border-radius: 16px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        border: 1px solid var(--border-color);
+      }
+
+      .certifications-list {
+        list-style: none;
+      }
+
+      .certification-item {
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        background: var(--bg-light);
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .certification-name {
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .certification-issuer {
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      .footer {
+        background: var(--bg-light);
+        padding: 2rem;
+        text-align: center;
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem 0.5rem;
+        }
+
+        .header {
+          padding: 2rem 1rem;
+        }
+
+        .header h1 {
+          font-size: 1.75rem;
+        }
+
+        .header .role {
+          font-size: 1rem;
+        }
+
+        .contact-info {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .content {
+          padding: 1.5rem;
+        }
+
+        .section-title {
+          font-size: 1.25rem;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media print {
+        body {
+          background: white;
+          padding: 0;
+        }
+
+        .container {
+          box-shadow: none;
+          border-radius: 0;
+        }
+
+        .project-card:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header Section -->
+      <header class="header">
+        <h1>{name}</h1>
+        <p class="role">{role}</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span>📧</span>
+            <span>developer@email.com</span>
+          </div>
+          <div class="contact-item">
+            <span>📱</span>
+            <span>+1 (555) 123-4567</span>
+          </div>
+          <div class="contact-item">
+            <span>🌐</span>
+            <span>github.com/developer</span>
+          </div>
+          <div class="contact-item">
+            <span>📍</span>
+            <span>San Francisco, CA</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="content">
+        <!-- Summary Section -->
+        <section class="section">
+          <h2 class="section-title">Professional Summary</h2>
+          <p class="summary">
+            Experienced Backend Java Developer with 8+ years of expertise in designing and implementing 
+            scalable, high-performance enterprise applications. Specialized in microservices architecture, 
+            RESTful APIs, and cloud-native solutions. Proven track record of delivering robust backend 
+            systems that handle millions of transactions daily. Passionate about clean code, best practices, 
+            and mentoring junior developers.
+          </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Core Technologies</h3>
+              <ul>
+                <li>Java (8, 11, 17, 21)</li>
+                <li>Spring Framework</li>
+                <li>Spring Boot</li>
+                <li>Spring Cloud</li>
+                <li>Hibernate/JPA</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Databases</h3>
+              <ul>
+                <li>PostgreSQL</li>
+                <li>MySQL</li>
+                <li>MongoDB</li>
+                <li>Redis</li>
+                <li>Oracle DB</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Cloud & DevOps</h3>
+              <ul>
+                <li>AWS (EC2, S3, Lambda)</li>
+                <li>Docker & Kubernetes</li>
+                <li>Jenkins/GitLab CI</li>
+                <li>Terraform</li>
+                <li>Microservices</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Tools & Methodologies</h3>
+              <ul>
+                <li>Maven/Gradle</li>
+                <li>Git/GitHub</li>
+                <li>JUnit/Mockito</li>
+                <li>Agile/Scrum</li>
+                <li>REST/GraphQL</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section">
+          <h2 class="section-title">Professional Experience</h2>
+          
+          <div class="experience-item">
+            <h3 class="experience-title">Senior Backend Java Developer</h3>
+            <div class="experience-company">Tech Solutions Inc.</div>
+            <div class="experience-date">Jan 2020 - Present</div>
+            <div class="experience-description">
+              <ul>
+                <li>Architected and developed microservices-based e-commerce platform handling 100K+ daily transactions</li>
+                <li>Implemented RESTful APIs using Spring Boot, reducing response time by 40%</li>
+                <li>Led migration from monolithic to microservices architecture using Spring Cloud and Docker</li>
+                <li>Optimized database queries and implemented caching strategies with Redis, improving performance by 60%</li>
+                <li>Mentored team of 5 junior developers on best practices and code review processes</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <h3 class="experience-title">Backend Java Developer</h3>
+            <div class="experience-company">Digital Innovations Corp.</div>
+            <div class="experience-date">Mar 2018 - Dec 2019</div>
+            <div class="experience-description">
+              <ul>
+                <li>Developed robust REST APIs for financial services application using Spring Boot and Hibernate</li>
+                <li>Integrated third-party payment gateways and implemented secure transaction processing</li>
+                <li>Implemented comprehensive unit and integration testing with JUnit and Mockito (95% code coverage)</li>
+                <li>Collaborated with DevOps team to implement CI/CD pipelines using Jenkins</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <h3 class="experience-title">Java Developer</h3>
+            <div class="experience-company">StartUp Ventures</div>
+            <div class="experience-date">Jun 2016 - Feb 2018</div>
+            <div class="experience-description">
+              <ul>
+                <li>Built backend services for SaaS application using Java EE and Spring Framework</li>
+                <li>Designed and implemented database schemas for PostgreSQL and MySQL</li>
+                <li>Developed batch processing jobs for data synchronization and reporting</li>
+                <li>Participated in Agile/Scrum ceremonies and contributed to sprint planning</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section">
+          <h2 class="section-title">Key Projects</h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <h3 class="project-title">E-Commerce Microservices Platform</h3>
+              <p class="project-description">
+                Designed and implemented a scalable microservices architecture for an e-commerce platform 
+                serving millions of users. Includes services for inventory, orders, payments, and user management.
+              </p>
+              <div class="tech-tags">
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">Spring Cloud</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Kubernetes</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Redis</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <h3 class="project-title">Real-time Analytics Engine</h3>
+              <p class="project-description">
+                Built a high-performance analytics engine processing millions of events per day. 
+                Implemented event-driven architecture with Kafka and optimized data processing pipelines.
+              </p>
+              <div class="tech-tags">
+                <span class="tech-tag">Java 17</span>
+                <span class="tech-tag">Apache Kafka</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Elasticsearch</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <h3 class="project-title">API Gateway & Authentication Service</h3>
+              <p class="project-description">
+                Developed centralized API gateway with OAuth2 authentication, rate limiting, and 
+                request/response transformation for microservices ecosystem.
+              </p>
+              <div class="tech-tags">
+                <span class="tech-tag">Spring Cloud Gateway</span>
+                <span class="tech-tag">OAuth2</span>
+                <span class="tech-tag">JWT</span>
+                <span class="tech-tag">AWS</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section">
+          <h2 class="section-title">Education</h2>
+          <div class="education-item">
+            <h3 class="experience-title">Bachelor of Science in Computer Science</h3>
+            <div class="experience-company">University of Technology</div>
+            <div class="experience-date">2012 - 2016</div>
+          </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="section">
+          <h2 class="section-title">Certifications</h2>
+          <ul class="certifications-list">
+            <li class="certification-item">
+              <div>
+                <div class="certification-name">Oracle Certified Professional, Java SE 11 Developer</div>
+                <div class="certification-issuer">Oracle</div>
+              </div>
+            </li>
+            <li class="certification-item">
+              <div>
+                <div class="certification-name">AWS Certified Developer - Associate</div>
+                <div class="certification-issuer">Amazon Web Services</div>
+              </div>
+            </li>
+            <li class="certification-item">
+              <div>
+                <div class="certification-name">Spring Professional Certification</div>
+                <div class="certification-issuer">Pivotal/VMware</div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>&copy; 2024 {name}. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Built with Astro Framework</p>
+      </footer>
+    </div>
+  </body>
+</html>
